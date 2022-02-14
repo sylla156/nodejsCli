@@ -2,10 +2,8 @@
   "name": "nodejscli",
   "version": "1.0.0",
   "description": "creation d'un cli commande",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/index.js",
+ 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sylla156/nodejsCli.git"
