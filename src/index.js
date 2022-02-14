@@ -2,35 +2,46 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 
+const nodeExpress = require("./configs/nodeExpress");
 const existingConfig = fs.existsSync("now.json");
 
-function buildConfig() {
-  inquirer
-    .prompt([
-      {
-        type: "text",
-        name: "name",
-        message: "what is the name of the project? ",
-        default: path.basename(process.cwd()),
-      },
-      {
-        type: "list",
-        name: "type",
-        message: "whate the type of the project",
-        choices: [
-          "static",
-          "react",
-          "node_express",
-          "vue",
-          "static-build",
-          "lambda",
-        ]
-        
-      },
-    ])
-    .then((answers) => {
-      console.log(answers);
-    });
+let config = {
+  version: 2
+};
+
+async function buildConfig() {
+  const answers = await inquirer.prompt([
+    {
+      type: "text",
+      name: "name",
+      message: "what is the name of the project? ",
+      default: path.basename(process.cwd()),
+    },
+    {
+      type: "list",
+      name: "type",
+      message: "whate the type of the project",
+      choices: [
+        "static",
+        "react",
+        "node_express",
+        "vue",
+        "static-build",
+        "lambda",
+      ],
+    },
+  ]);
+  config.name = answers.name;
+
+  switch (answers.type) {
+    case "node_express":
+      config = await nodeExpress(config);
+      console.log(config);
+      break;
+
+    default:
+      break;
+  }
 }
 
 if (existingConfig) {
