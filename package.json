@@ -1,14 +1,14 @@
 {
-  "name": "nodejscli",
+  "name": "sylla",
   "version": "1.0.0",
-  "description": "creation d'un cli commande",
+  "description": "A CLI to help generate a now.sh configuration file.",
   "main": "src/index.js",
- 
+  "bin": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sylla156/nodejsCli.git"
   },
-  "author": "",
+  "author": "sylla ibrahim ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sylla156/nodejsCli/issues"

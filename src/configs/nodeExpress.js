@@ -34,7 +34,8 @@ async function nodeExpress(config) {
             default: mainFile,
         }
     ]);
-
+    baseConfig.builds[0].src =  answers.main;
+    baseConfig.builds[0].dest = answers.main;
     return {
         ...config,
         ...baseConfig,
