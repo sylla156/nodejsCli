@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/sylla156/nodejsCli/issues"
   },
-  "homepage": "https://github.com/sylla156/nodejsCli#readme"
+  "homepage": "https://github.com/sylla156/nodejsCli#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
